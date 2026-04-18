@@ -1,6 +1,4 @@
-# Email Ops Clean (v1)
-
-Clean rebuild of the bounded AI email automation product:
+# Email-Operations-Automation-Platform
 
 `Gmail sync -> store -> LLM classify/extract -> bounded routing -> HITL when needed -> HubSpot/Jira execution -> operator UI -> evals/ops`
 
