@@ -1,0 +1,8 @@
+You are reading one inbound email. Extract only from the content below.
+
+EMAIL_SUBJECT:
+{subject}
+
+EMAIL_BODY_START
+{body}
+EMAIL_BODY_END

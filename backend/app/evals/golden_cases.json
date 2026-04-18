@@ -1,0 +1,94 @@
+{
+  "version": 2,
+  "description": "Clean v1 golden routing cases",
+  "cases": [
+    {
+      "id": "crm_demo_pricing",
+      "name": "Commercial demo + pricing",
+      "subject": "Demo and pricing request",
+      "body": "We want a demo and pricing for 200 seats this quarter.",
+      "expected_route": "crm_only",
+      "expect_hitl": false
+    },
+    {
+      "id": "eng_incident",
+      "name": "Production incident",
+      "subject": "[SEV-2] API 500 in production",
+      "body": "Please investigate root cause and fix checkout API.",
+      "expected_route": "jira_only",
+      "expect_hitl": false
+    },
+    {
+      "id": "both_case",
+      "name": "Commercial + engineering",
+      "subject": "Renewal blocked by checkout bug",
+      "body": "Need pricing update and engineering fix for production bug.",
+      "expected_route": "both",
+      "expect_hitl": false
+    },
+    {
+      "id": "ambiguous",
+      "name": "Ambiguous thin signal",
+      "subject": "Not sure who handles this",
+      "body": "Please review manually.",
+      "expected_route": "hitl",
+      "expect_hitl": true
+    },
+    {
+      "id": "newsletter_marketing_noise",
+      "name": "Marketing newsletter noise",
+      "subject": "Weekly product digest",
+      "body": "View in browser. Unsubscribe. You are receiving this newsletter as a subscriber.",
+      "expected_route": "noop",
+      "expect_hitl": false
+    },
+    {
+      "id": "ooo_auto_reply",
+      "name": "Out of office auto reply",
+      "subject": "Automatic reply: Out of office until Monday",
+      "body": "I am currently out of office and will respond when I return.",
+      "expected_route": "noop",
+      "expect_hitl": false
+    },
+    {
+      "id": "notification_no_action",
+      "name": "System notification no action",
+      "subject": "Daily backup completed",
+      "body": "Automated notification: all backups completed successfully. No action required.",
+      "expected_route": "noop",
+      "expect_hitl": false
+    },
+    {
+      "id": "reply_ack_only",
+      "name": "Reply-only acknowledgement",
+      "subject": "Re: Incident update",
+      "body": "Thanks, acknowledged.",
+      "expected_route": "noop",
+      "expect_hitl": false
+    },
+    {
+      "id": "forwarded_ambiguous_owner",
+      "name": "Forwarded ambiguous ownership",
+      "subject": "Fwd: please see below",
+      "body": "FYI only, attaching thread. Not sure who should own this.",
+      "expected_route": "hitl",
+      "expect_hitl": true
+    },
+    {
+      "id": "mixed_language_engineering",
+      "name": "Mixed-language engineering incident",
+      "subject": "[SEV-2] כשל API בפרודקשן",
+      "body": "יש תקלה עקבית ב-Production עם 500 ב-checkout API. Please investigate root cause and propose fix ETA.",
+      "expected_route": "jira_only",
+      "expect_hitl": false
+    },
+    {
+      "id": "both_reply_context",
+      "name": "Both route with reply context",
+      "subject": "Re: Renewal + production bug",
+      "body": "Please confirm revised pricing for renewal and share ETA for the checkout production fix.",
+      "expected_route": "both",
+      "expect_hitl": false
+    }
+  ]
+}
